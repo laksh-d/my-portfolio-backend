@@ -1,0 +1,62 @@
+Database : 
+Tables : 
+	1.profile table : 
+		- profile id - primary key
+		- name 
+		- introduction_description
+		- about_me_id
+		- contact_me_id 
+			- experience_id 
+			- education_id 
+			- project_id 
+		
+	2.about_me table : profile - one to one | hobbies - one to many 
+		- aid -pk 
+		- description
+		- hobbies - can be multiple (different table)
+	
+	3.hobbies : many to one
+		- id 
+		- hobby_name 
+		- description
+		- about_me_id - fk constraint to about_me table 
+	
+	4. experience : to many
+		- eid -pk
+		- company_name 
+		- role
+		- role_description 
+		- from_date 
+		- to_date 
+		- profile_id - fk constraint
+		
+	5.education : to many 
+		- eduction_id - pk 
+		- degree_title 
+		- institution_name 
+		- CGPA 
+		- from_date 
+		- to_date 
+		- profile_id - fk constraint
+		
+	6.personal_project : to many 
+		- pid -pk 
+		- name 
+		- description
+		- tech_stack 
+		- source_code_link 
+		- profile_id - fk constraint
+		
+	7.contact_me : to one 
+		- cid -pk 
+		- phone_number
+		- email_id 
+		- linkedin_profile 
+		- github_profile
+		
+	8. visitor table 
+		- vid -pk
+		- visitor_name 
+		- phone_number 
+		- email_address 
+		- note 
