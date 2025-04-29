@@ -39,9 +39,9 @@ Tables :
 		- to_date 
 		- profile_id - fk constraint
 		
-	6.personal_project : to many 
+	6.projects : to many 
 		- pid -pk 
-		- name 
+		- pname 
 		- description
 		- tech_stack 
 		- source_code_link 
