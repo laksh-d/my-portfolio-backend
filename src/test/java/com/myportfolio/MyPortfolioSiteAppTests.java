@@ -1,4 +1,4 @@
-package com.laksh.portfolio_site;
+package com.myportfolio;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,32 +1,38 @@
-package com.laksh.portfolio_site.controller;
+package com.myportfolio.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.myportfolio.model.Profile;
+import com.myportfolio.service.ProfileService;
+
 @RestController
 public class HomeController {
+	
+	@Autowired
+	ProfileService profileService;
 
 	@GetMapping("/home")
 	public String home() {
-		return "Welcome to my portfolio!";
+		return "Welcome to my Portfolio site!";
 	}
 
 	@GetMapping("/intro")
 	public String getIntroduction() {
-		return "I’m a software developer with over five years of professional experience, currently based in Bangalore, India. "
-				+ "I specialize in building efficient back-end systems, "
-				+ "feel free to reach out if you’d like to connect or collaborate!";
+		Profile profile = profileService.getProfile(1);
+		return profile.getIntroductionDesc();
 	}
 
 	@GetMapping("/aboutme")
 	public String getAboutme() {
-		return "backend developer introudction like about me, hobbies"; // this would be JSON data with specific fields
+		return "backend developer introduction like about me, hobbies"; // this would be JSON data with specific fields
 	}
 
 	@GetMapping("/experience")
 	public String getExeperience() {
-		return "techstack, companies and their projects,  ";
+		return "tech stack, companies and their projects,  ";
 	}
 
 	@GetMapping("/education")
@@ -36,6 +42,8 @@ public class HomeController {
 
 	@GetMapping("/projects")
 	public String getProjects() {
+		// this would be JSON data with specific fields
+		// return "projects -> like this portfolio and tech stack used (springBoot, mysql,REST etc)";
 		return "personal projects -> like this portfolio and tech stack used (springBoot, mysql,REST etc)";
 	}
 
