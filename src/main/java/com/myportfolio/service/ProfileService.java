@@ -1,5 +1,7 @@
 package com.myportfolio.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +14,8 @@ public class ProfileService {
 	@Autowired
 	ProfileRepo profileRepo;
 
-	public Profile getProfile(Integer id) {
-		return profileRepo.findById(1).get();
+	public Optional<Profile> getProfile(Integer id) {
+		return profileRepo.findById(id);
 	}
 
 }

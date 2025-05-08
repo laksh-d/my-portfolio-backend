@@ -9,7 +9,7 @@ import com.myportfolio.model.Profile;
 
 @Repository
 public interface ProfileRepo extends JpaRepository<Profile, Integer> {
-	
-	Optional<Profile> findById(Integer id) ;
-	
+
+//    Optional<Profile> findById(Integer id);
+
 }

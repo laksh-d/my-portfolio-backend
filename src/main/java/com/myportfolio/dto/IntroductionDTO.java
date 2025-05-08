@@ -1,0 +1,17 @@
+package com.myportfolio.dto;
+
+public class IntroductionDTO {
+	private String message;
+
+	public IntroductionDTO(String message) {
+		this.message = message;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+}

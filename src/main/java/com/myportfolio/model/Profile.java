@@ -1,21 +1,30 @@
 package com.myportfolio.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
+@Table(name = "profile")
 @Data
 public class Profile {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int profileId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "profile_id")
+    private int profileId;
 
-	private String name;
+    @Column(name = "name", nullable = false, length = 50)
+    private String name;
 
-	private String introductionDesc;
+    @Column(name = "introduction_desc", nullable = false, length = 400)
+    private String introductionDesc;
+
+    @ManyToOne
+    @JoinColumn(name = "aboutme_id", foreignKey = @ForeignKey(name = "fk_aboutme"))
+    private AboutMe aboutMe;
+
+    @ManyToOne
+    @JoinColumn(name = "contact_me_id", foreignKey = @ForeignKey(name = "fk_contact_me"))
+    private ContactMe contactMe;
 
 }

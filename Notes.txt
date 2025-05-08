@@ -60,3 +60,14 @@ Tables :
 		- phone_number 
 		- email_address 
 		- note 
+		
+
+----------------------------------
+API response : 
+	
+1.DTOs for each service 
+	
+
+
+Future  : 
+	- explore which what extra fields could be added to the DTO objects 
