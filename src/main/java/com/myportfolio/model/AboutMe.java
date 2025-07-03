@@ -1,26 +1,18 @@
 package com.myportfolio.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Data;
 
-import java.util.List;
-
 @Entity
-@Table(name = "about_me")
 @Data
 public class AboutMe {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-
-	@Column(nullable = false, length = 255)
-	private String description;
-
-	@Column(name = "introduction_desc", nullable = false, length = 400)
-	private String introductionDesc;
-
-	@OneToMany(mappedBy = "aboutMe", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Hobby> hobbies;
+    @Id
+    private Integer id;
+    private String introduction;
+    private String address;
+    private String phoneNo;
+    private String email;
 
 }

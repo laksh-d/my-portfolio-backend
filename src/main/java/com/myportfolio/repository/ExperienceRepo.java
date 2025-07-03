@@ -1,14 +1,10 @@
 package com.myportfolio.repository;
 
-import com.myportfolio.model.Profile;
+import com.myportfolio.model.Experience;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
-public interface ExperienceRepo extends JpaRepository<Profile, Integer> {
-	
-	Optional<Profile> findById(Integer id) ;
-	
+public interface ExperienceRepo extends JpaRepository<Experience, Integer> {
+
 }

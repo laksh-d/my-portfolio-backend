@@ -1,0 +1,4 @@
+--Experience Table
+INSERT INTO public.experience
+(id, company, description_bullets, from_date, "location", "role", to_date)
+VALUES(1, 'TerraPay', '{"Lead the end-to-end execution of the MRSP initiative for Airtel and MTN partners, streamlining transaction markup processes and driving a 27% growth in revenue and volume.","Integrated multiple partners into a scalable, enterprise-grade cross-border payments platform, ensuring seamless and reliable global money transfers.","Developed APIs to acquire data from partner interfaces in JSON and XML format, update core systems via internal services, and implemented data validation to ensure accuracy and consistency"}', '01/10/2025', 'Bangalore', 'Software Engineer II', 'PRESENT');
