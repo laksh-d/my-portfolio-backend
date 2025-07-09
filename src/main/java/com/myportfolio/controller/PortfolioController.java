@@ -16,6 +16,9 @@ import java.util.List;
 public class PortfolioController {
 
     @Autowired
+    WelcomeService welcomeService;
+
+    @Autowired
     AboutMeService aboutMeService;
 
     @Autowired
@@ -32,7 +35,7 @@ public class PortfolioController {
 
     @GetMapping("/home")
     public ResponseEntity<responseDTO> home() {
-        responseDTO responseDTO = new responseDTO("Hi!, Lakshman here");
+        responseDTO responseDTO = new responseDTO(welcomeService.getWelcomeMessage());
         return ResponseEntity.ok(responseDTO);
     }
 
