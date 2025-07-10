@@ -33,6 +33,9 @@ public class PortfolioController {
     @Autowired
     ReachOutService reachOutService;
 
+    @Autowired
+    SkillsService skillsService;
+
     @GetMapping("/home")
     public ResponseEntity<responseDTO> home() {
         responseDTO responseDTO = new responseDTO(welcomeService.getWelcomeMessage());
@@ -54,6 +57,11 @@ public class PortfolioController {
         contactDetailsDTO.setEmail(details.getEmail());
         contactDetailsDTO.setAddress(details.getAddress());
         return ResponseEntity.ok(contactDetailsDTO);
+    }
+
+    @GetMapping("/skills")
+    public ResponseEntity<List<SkillsDTO>> getSkills() {
+        return ResponseEntity.ok(skillsService.getSkills());
     }
 
     @GetMapping("/experience")
