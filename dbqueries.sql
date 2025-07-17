@@ -8,7 +8,6 @@ INSERT INTO public.about_me (id, address, email, introduction, phone_no) VALUES
 -- Insert into education
 INSERT INTO public.education (college_name, degree, from_date, location, to_date) VALUES
 ('KLE Dr. M.S. Sheshgiri College of Engineering, Belgaum (VTU)', 'B.E. – Computer Science Engineering', '2016', 'Belgaum', '2019'),
-('Govt. Polytechnic College, Joida', 'Diploma – Computer Science Engineering', '2013', 'Joida', '2016');
 
 
 -- Insert into experience
