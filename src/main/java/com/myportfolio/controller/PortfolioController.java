@@ -11,84 +11,84 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {"http://localhost:5173","https://devfolio-laksh.netlify.app"})
+@CrossOrigin(origins = { "http://localhost:5173", "https://devfolio-laksh.netlify.app" })
 @RestController
 public class PortfolioController {
 
-    @Autowired
-    WelcomeService welcomeService;
+	@Autowired
+	WelcomeService welcomeService;
 
-    @Autowired
-    AboutMeService aboutMeService;
+	@Autowired
+	AboutMeService aboutMeService;
 
-    @Autowired
-    ExperienceService experienceService;
+	@Autowired
+	ExperienceService experienceService;
 
-    @Autowired
-    EducationService educationService;
+	@Autowired
+	EducationService educationService;
 
-    @Autowired
-    ProjectService projectService;
+	@Autowired
+	ProjectService projectService;
 
-    @Autowired
-    ReachOutService reachOutService;
+	@Autowired
+	ReachOutService reachOutService;
 
-    @Autowired
-    SkillsService skillsService;
+	@Autowired
+	SkillsService skillsService;
 
-    @GetMapping("/home")
-    public ResponseEntity<responseDTO> home() {
-        responseDTO responseDTO = new responseDTO(welcomeService.getWelcomeMessage());
-        return ResponseEntity.ok(responseDTO);
-    }
+	@GetMapping("/home")
+	public ResponseEntity<responseDTO> home() {
+		responseDTO responseDTO = new responseDTO(welcomeService.getWelcomeMessage());
+		return ResponseEntity.ok(responseDTO);
+	}
 
-    @GetMapping("/introduction")
-    public ResponseEntity<responseDTO> getIntroduction() {
-        AboutMe details = aboutMeService.getPersonalDetails();
-        responseDTO responseDTO = new responseDTO(details.getIntroduction());
-        return ResponseEntity.ok(responseDTO);
-    }
+	@GetMapping("/introduction")
+	public ResponseEntity<responseDTO> getIntroduction() {
+		AboutMe details = aboutMeService.getPersonalDetails();
+		responseDTO responseDTO = new responseDTO(details.getIntroduction());
+		return ResponseEntity.ok(responseDTO);
+	}
 
-    @GetMapping("/contact-details")
-    public ResponseEntity<ContactDetailsDTO> getContactDetails() {
-        AboutMe details = aboutMeService.getPersonalDetails();
-        ContactDetailsDTO contactDetailsDTO = new ContactDetailsDTO();
-        contactDetailsDTO.setPhone(details.getPhoneNo());
-        contactDetailsDTO.setEmail(details.getEmail());
-        contactDetailsDTO.setAddress(details.getAddress());
-        return ResponseEntity.ok(contactDetailsDTO);
-    }
+	@GetMapping("/contact-details")
+	public ResponseEntity<ContactDetailsDTO> getContactDetails() {
+		AboutMe details = aboutMeService.getPersonalDetails();
+		ContactDetailsDTO contactDetailsDTO = new ContactDetailsDTO();
+		contactDetailsDTO.setPhone(details.getPhoneNo());
+		contactDetailsDTO.setEmail(details.getEmail());
+		contactDetailsDTO.setAddress(details.getAddress());
+		return ResponseEntity.ok(contactDetailsDTO);
+	}
 
-    @GetMapping("/skills")
-    public ResponseEntity<List<SkillsDTO>> getSkills() {
-        return ResponseEntity.ok(skillsService.getSkills());
-    }
+	@GetMapping("/skills")
+	public ResponseEntity<List<SkillsDTO>> getSkills() {
+		return ResponseEntity.ok(skillsService.getSkills());
+	}
 
-    @GetMapping("/experience")
-    public ResponseEntity<List<ExperienceDTO>> getExperience() {
-        return ResponseEntity.ok(experienceService.getExperienceDetails());
-    }
+	@GetMapping("/experience")
+	public ResponseEntity<List<ExperienceDTO>> getExperience() {
+		return ResponseEntity.ok(experienceService.getExperienceDetails());
+	}
 
-    @GetMapping("/education")
-    public ResponseEntity<List<EducationDTO>> getEducation() {
-        return ResponseEntity.ok(educationService.getEducationDetails());
-    }
+	@GetMapping("/education")
+	public ResponseEntity<List<EducationDTO>> getEducation() {
+		return ResponseEntity.ok(educationService.getEducationDetails());
+	}
 
-    @GetMapping("/projects")
-    public ResponseEntity<List<ProjectDTO>> getProjectList() {
-        return ResponseEntity.ok(projectService.getProjectList());
-    }
+	@GetMapping("/projects")
+	public ResponseEntity<List<ProjectDTO>> getProjectList() {
+		return ResponseEntity.ok(projectService.getProjectList());
+	}
 
-    @PostMapping("/reachout")
-    public ResponseEntity<responseDTO> saveVisitorDetails(@RequestBody ReachOutDTO request) {
-        ReachOut savedEntity = reachOutService.saveVisitorDetails(request);
-        responseDTO response = new responseDTO();
-        if (null == savedEntity) {
-            response.setMessage("SUCCESS");
-            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        response.setMessage("SUCCESS");
-        return ResponseEntity.ok(response);
-    }
+	@PostMapping("/reachout")
+	public ResponseEntity<responseDTO> saveVisitorDetails(@RequestBody ReachOutDTO request) {
+		ReachOut savedEntity = reachOutService.saveVisitorDetails(request);
+		responseDTO response = new responseDTO();
+		if (null == savedEntity) {
+			response.setMessage("SUCCESS");
+			return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		response.setMessage("SUCCESS");
+		return ResponseEntity.ok(response);
+	}
 
 }
